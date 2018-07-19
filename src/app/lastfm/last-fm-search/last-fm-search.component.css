@@ -1,0 +1,18 @@
+
+.listOption{
+    display: flex;
+}
+
+.listOption img{
+    border-radius: 50%;
+}
+
+.details{
+    margin-left:25px;
+    margin-top:21px;
+}
+
+.mat-list .mat-list-item, .mat-list .mat-list-option, .mat-nav-list .mat-list-item, .mat-nav-list .mat-list-option, .mat-selection-list .mat-list-item, .mat-selection-list .mat-list-option {
+    display: block;
+    height: 75px;
+}

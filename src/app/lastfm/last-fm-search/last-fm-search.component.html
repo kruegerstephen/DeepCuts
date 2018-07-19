@@ -1,0 +1,14 @@
+<h3>Search Last.fm: </h3>
+<form [formGroup] = "lastFmSearch">
+  <mat-form-field id="track">
+    <input matInput formControlName="TrackName" type="text" placeholder="Search Last.fm..." >
+  </mat-form-field>
+</form>
+
+<mat-selection-list id="trackRes" #trackRes>
+  <mat-list-option *ngFor="let track of suggestedTrackList" [value]="track">
+    <div class="listOption">
+      <img src='{{track.image[1][["#text"]]}}'> <div class="details">{{track.name}} / {{track.artist}}</div>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

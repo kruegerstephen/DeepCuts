@@ -1,0 +1,12 @@
+#displayGrid{
+    display: grid;
+    grid-template-areas: ". tracks filter";
+}
+
+#filterBar{
+    grid-area: filter;
+}
+
+#tracks{
+    grid-area: tracks;
+}

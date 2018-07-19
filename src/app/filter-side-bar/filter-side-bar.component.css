@@ -1,0 +1,29 @@
+#filterGrid{
+    display: grid;
+    grid-template-areas: "artist"
+                         "track"
+                         "year"
+                         "genre";
+    max-width: 300px;
+    border: 1px black solid;
+    height:100vh;
+    padding:10px;
+}
+
+
+#artist{
+    grid-area: artist;
+}
+
+#genres{
+    grid-area: genre;
+}
+
+#year{
+    grid-area: year;
+}
+
+#track{
+    grid-area: track;
+}
+

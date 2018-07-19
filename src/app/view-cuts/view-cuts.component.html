@@ -1,0 +1,13 @@
+<div id="displayGrid">
+
+<app-filter-side-bar id="filterBar"></app-filter-side-bar>
+
+<ul id="tracks">
+    <li *ngFor="let track of tracks$ | async">
+        <a [routerLink]="['/search', track.Track]">{{track.Track}}</a>
+    </li>
+</ul>
+<router-outlet></router-outlet>
+
+
+</div>

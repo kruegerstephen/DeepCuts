@@ -1,0 +1,23 @@
+<div id="filterGrid">
+  <form [formGroup] = "filterForm">
+    <mat-form-field id="artist">
+      <input matInput formControlName="ArtistName" type="text" placeholder="Enter Artist Name" >
+    </mat-form-field>
+
+    <mat-form-field id="track">
+      <input matInput formControlName="TrackName" type="text" placeholder="Enter Track Name" >
+    </mat-form-field>
+
+    <mat-form-field id="year">
+      <input matInput formControlName="Release" type="text" placeholder="Enter Release Year" >
+    </mat-form-field>
+
+    <mat-selection-list id="genres" #genres>
+      <mat-list-option (click)="addGenre(genre)" *ngFor="let genre of genresList">
+        {{genre}}
+      </mat-list-option>
+    </mat-selection-list>
+
+    <button mat-raised-button (click)="filterTracks()">Search!</button>
+  </form>
+</div>
