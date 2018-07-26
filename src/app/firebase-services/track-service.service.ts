@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { FireBaseTrack, TrackFilter } from '../interfaces';
-import { Observable, Subject, BehaviorSubject, combineLatest, of } from 'rxjs';
+import { Observable, Subject, BehaviorSubject, of } from 'rxjs';
 import { switchMap, catchError } from 'rxjs/operators';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { FirebaseApp } from 'angularfire2';
 import { map } from 'rxjs/operators';
 import { FilterTrackService } from '../filter-side-bar/filter-track.service';
 
@@ -62,10 +60,13 @@ export class TrackService {
       let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
       if (filter) {
         if (filter.trackName) {
-          query = query.where('Track', '==', filter.trackName);
+          query = this.textSearchQuery(filter.trackName, 'Track', query);
         }
         if (filter.artistName) {
-          query = query.where('Artist', '==', filter.artistName);
+          query = this.textSearchQuery(filter.artistName, 'Artist', query);
+        }
+        if (filter.albumName) {
+          query = this.textSearchQuery(filter.albumName, 'Album', query);
         }
       }
         return query;
@@ -78,6 +79,20 @@ export class TrackService {
           });
         })
       );
+  }
+
+  textSearchQuery(searchString: string, searchTerm: string, query: firebase.firestore.CollectionReference | firebase.firestore.Query)
+                                             : firebase.firestore.CollectionReference | firebase.firestore.Query {
+     const strSearch = searchString;
+     const strlength = strSearch.length;
+     const strFrontCode = strSearch.slice(0, strlength - 1);
+     const strEndCode = strSearch.slice(strlength - 1, strSearch.length);
+
+     const startcode = strSearch;
+     const endcode = strFrontCode + String.fromCharCode(strEndCode.charCodeAt(0) + 1);
+
+     return query.where(searchTerm, '>=', startcode).where(searchTerm, '<', endcode);
+
   }
 
 

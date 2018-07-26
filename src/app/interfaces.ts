@@ -24,6 +24,7 @@ export interface Tag {
 export interface TrackFilter {
     artistName: string;
     trackName: string;
+    albumName: string;
     year: string;
     rating: string;
 }

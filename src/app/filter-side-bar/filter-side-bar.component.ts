@@ -23,34 +23,33 @@ export class FilterSideBarComponent implements OnInit {
   ngOnInit() {
     this.trackService.tracks.subscribe(tracks => {
       this.trackList = tracks;
-      tracks.forEach(t => t.Genre.forEach(name => { this.genresList.push(name.name); }));
     });
-    console.log(this.genresList);
     this.buildForm();
   }
 
   private buildForm() {
     this.filterForm = this.fb.group({
-      ArtistName: ['', Validators.required],
-      AlbumName: ['', Validators.required],
-      TrackName: ['', Validators.required],
-      Genre: [[], Validators.required],
-      Release: ['', Validators.required],
-      DeepRating: ['', Validators.required],
-      CutRating: ['', Validators.required],
+      ArtistName: [''],
+      AlbumName: [''],
+      TrackName: [''],
+      Genre: [[]],
+      Release: [''],
+      DeepRating: [''],
+      CutRating: [''],
     });
+  }
 
-    this.filterForm.valueChanges.subscribe(filterValues => {
+  filterTracks() {
+    const filterValues = this.filterForm.value;
+    const filter: TrackFilter = {
+      artistName: filterValues.ArtistName,
+      trackName: filterValues.TrackName,
+      albumName: filterValues.AlbumName,
+      rating: filterValues.DeepRating,
+      year: filterValues.Release,
+    };
 
-      const filter: TrackFilter = {
-        artistName: filterValues.ArtistName,
-        trackName: filterValues.TrackName,
-        rating: filterValues.DeepRating,
-        year: filterValues.Release,
-      };
-
-      this.filterService.FilterSubject.next(filter);
-    });
+    this.filterService.FilterSubject.next(filter);
   }
 
   addGenre(genre) {
