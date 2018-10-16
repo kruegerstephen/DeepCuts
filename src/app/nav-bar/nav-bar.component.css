@@ -2,4 +2,22 @@
     position: relative;
     display: flex;
     justify-content: flex-end;
+    font-family: var(--space-font);
+}
+
+::ng-deep :root .mat-tab-link {
+    font-family: var(--lato-font);
+}
+
+.siteTitle{
+    font-size: 35px;
+    font-weight: bold;
+    font-family: var(--space-font);
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 42%, rgba(209,206,190,1) 100%);
 }

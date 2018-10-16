@@ -1,0 +1,25 @@
+<div [@trackState]='track_state' (mouseenter)="toggleState()" (mouseleave)="toggleState()" class="trackListView-wrapper">
+    <img class="trackListAlbumArt" src={{track.AlbumArt}} />
+    <div class="trackListTrackTitle">
+        <span class="trackTitle">{{track.Track}}</span>  
+        <span class="artistTitle">{{track.Artist}}</span>
+        <span class="albumTitle">{{track.Album}}</span>
+        <span class="releaseDate">{{track.Release}}</span>
+    </div>
+    <div class="recentComment">
+        <div>Comments: </div>
+        <div class="commentUserName">John Smith</div>
+        <div class="comment">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </div>
+    </div>
+    <div class="icons">
+        <div class="knife-button">
+            <svg fill="white" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+                <metadata> Svg Vector Icons : http://www.onlinewebfonts.com/icon </metadata>
+                <g><g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)"><path d="M1071.2,4965.8C433.7,4754.3,98.8,4058,336.8,3435.3c170.4-449.5,567-731.5,1057.5-752l217.4-8.8l904.8-904.8L3424.2,862l661,661l661,661L3433,3499.9c-1507,1507-1483.5,1489.4-1944.7,1507C1297.4,5015.7,1194.5,5006.9,1071.2,4965.8z M1602.9,4152.1c182.1-94,232.1-355.5,99.9-511.1c-105.8-126.3-261.4-170.4-402.4-111.6c-117.5,49.9-226.2,199.8-226.2,308.4c0,108.7,88.1,267.3,173.3,314.3C1347.3,4207.9,1497.1,4207.9,1602.9,4152.1z"/><path d="M4252.6,1014.7l-828.4-828.4l167.4-164.5c1131-1092.8,2873-2303.1,4532.7-3149.1c346.6-179.2,637.5-326.1,640.4-332c14.7-11.7,58.8-493.5,47-508.2c-17.7-20.5-599.3,255.6-1142.7,546.4C6082.7-2578,4581.6-1526.3,3394.8-436.5l-308.5,285L2924.8-316l-161.6-164.5l264.4-249.7c1680.3-1589.2,4424-3278.3,6471.5-3977.5L9740-4790v596.4c0,825.4-70.5,1210.3-299.6,1601c-70.5,120.4-687.4,757.9-2226.7,2303L5083.9,1846L4252.6,1014.7z"/></g></g>
+            </svg>
+        </div>
+        <button mat-mini-fab class="addCircle">
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>

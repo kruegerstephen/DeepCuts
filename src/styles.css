@@ -2,17 +2,27 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import url('https://fonts.googleapis.com/css?family=Oswald');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
+@import url('https://fonts.googleapis.com/css?family=Space+Mono|Work+Sans|Lato');
 
 ::ng-deep :root{
     --roboto-font: 'Roboto Slab', serif;
     --oswald-font: 'Oswald', sans-serif;
-    --main-background-color: #F6F2F2;
-    --light-highlight: #CEA16E;
-    --dark-highlight: #988F88;
-    --success-color: #679453;
-    --warning-color: #e5841b;
-    --danger-color: #f44336;
-    --primary-color: #a7545a;
-    --info-color: #4b4646;
+    --space-font: 'Space Mono', monospace;
+    --work-font: 'Work Sans', sans-serif;
+    --lato-font: 'Lato', sans-serif;
+    --main-background-color: #25222A;
+    --main-background-color-light: #fbf9fa;
+    --brand-color: #4B4646;
+    --light-highlight: #AD8C87;
+    --dark-highlight: #7D7388;
+    --success-color: #689353;
+    --warning-color: #e5831b;
+    --danger-color: #A7545B;
+    --primary-color: #a9535b;
+    --info-color: #25222a;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }

@@ -1,12 +1,36 @@
+@import url('../../../src/styles.css');
+
+
 #displayGrid{
     display: grid;
-    grid-template-areas: ". tracks filter";
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    grid-column-gap: 10px;
+    justify-content: center;
+    grid-template-columns: 6fr 1fr;
+    grid-template-areas: "tracks filter";
 }
 
-#filterBar{
+#filterBar-wrapper{
     grid-area: filter;
+    max-width: 180px;
+    margin-top:8%;
+    margin-right:30%;
+    text-align: center;
 }
 
 #tracks{
     grid-area: tracks;
+    overflow: scroll;
+    padding:5px;
+    margin-left: 20px;
+    justify-self: center;
+    width: 90%;
+    max-height: 95%;
+}
+
+#pageTitle{
+    font-family: var(--space-font);
+    font-size: 50px;
 }

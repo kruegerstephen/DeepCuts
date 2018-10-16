@@ -1,13 +1,10 @@
 #filterGrid{
-    display: grid;
-    grid-template-areas: "artist"
-                         "track"
-                         "year"
-                         "genre";
-    max-width: 300px;
-    border: 1px black solid;
-    height:100vh;
-    padding:10px;
+    display: flex;
+    height: 100vh;
+    padding: 10px;
+    margin-left: 5px;
+    padding-left: 15px;
+    flex-direction: column;
 }
 
 
@@ -19,11 +16,19 @@
     grid-area: genre;
 }
 
+#album{
+}
+
 #year{
     grid-area: year;
 }
 
 #track{
     grid-area: track;
+}
+
+#filterTitle{
+    font-family: var(--space-font);
+    font-size: 25px;
 }
 

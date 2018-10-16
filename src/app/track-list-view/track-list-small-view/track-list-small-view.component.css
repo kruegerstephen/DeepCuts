@@ -1,0 +1,117 @@
+
+.trackListView-wrapper{
+    display: flex;
+    font-family: var(--roboto-font);
+    height: 140px;
+    max-width: 95%;
+    margin-bottom: 50px;
+    padding:10px;    
+    background: rgb(117,60,65);
+    background:linear-gradient(370deg, rgba(117,60,65,1) 0%, rgba(75,70,70,1) 27%, rgba(75,70,70,1) 90%);
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px black;
+}
+
+.trackListAlbumArt{
+    min-width: 175px;
+    min-height: 175px;
+    margin-left: 8px;
+    box-shadow: 3px 2px 15px 2px var(--info-color);
+}
+
+.trackListTrackTitle{
+    font-size: 35px;
+    color: white;
+    margin-top: -25px;
+    -ms-grid-row-align: center;
+    align-self: center;
+    padding-left: 30px;
+    max-height: 80px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+
+.trackTitle{
+    font-size: 30px;
+    font-weight:bolder;
+}
+
+.artistTitle{
+    font-size: 20px;
+}
+
+.albumTitle{
+    font-size:15px;
+}
+
+.releaseDate{
+    font-size:15px;
+}
+
+.icons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
+
+.icons mat-icon {
+    font-size: 48px;
+}
+
+
+.knife-button{
+    width:56px;
+    height:56px;
+}
+
+.addCircle{
+    background-color: var(--danger-color);
+    filter: drop-shadow( 1px 1px 2px black);
+    margin-top:40px;
+    margin-left: 20px;
+}
+
+.addCircle mat-icon {
+    font-size: 35px;
+    width:auto;
+    margin: -10px;
+    height:auto;
+}
+
+
+.hvr-grow {
+    vertical-align: middle;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    transition-duration: 0.1s;
+    transition-property: transform;
+}
+
+.recentComment{
+    color:white;
+    font-size:18px;
+    margin-right: 7%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.commentUserName{
+    font-size: 20px;
+}
+
+.comment{
+    font-size: 14px;
+    font-family: var(--lato-font);
+}
+
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    box-shadow: 0 0 1px rgba(226, 124, 124, 0.849);
+    transform: scale(1.01);
+    filter: blur(0);
+
+}

@@ -1,19 +1,20 @@
 <div id="filterGrid">
-  <form [formGroup] = "filterForm">
+  <div id="filterTitle">Filter</div>
+  <form  autocomplete="off" [formGroup] = "filterForm">
     <mat-form-field id="artist">
-      <input matInput formControlName="ArtistName" type="text" placeholder="Enter Artist Name" >
+      <input matInput  autocomplete="off"  formControlName="ArtistName" type="text" placeholder="Enter Artist Name" >
     </mat-form-field>
 
     <mat-form-field id="track">
-      <input matInput formControlName="TrackName" type="text" placeholder="Enter Track Name" >
+      <input matInput  autocomplete="off"  formControlName="TrackName" type="text" placeholder="Enter Track Name" >
     </mat-form-field>
 
     <mat-form-field id="album">
-      <input matInput formControlName="AlbumName" type="text" placeholder="Enter Album Name" >
+      <input matInput  autocomplete="off"  formControlName="AlbumName" type="text" placeholder="Enter Album Name" >
     </mat-form-field>
 
     <mat-form-field id="year">
-      <input matInput formControlName="Release" type="text" placeholder="Enter Release Year" >
+      <input matInput  autocomplete="off"  formControlName="Release" type="text" placeholder="Enter Release Year" >
     </mat-form-field>
 
     <mat-selection-list id="genres" #genres>

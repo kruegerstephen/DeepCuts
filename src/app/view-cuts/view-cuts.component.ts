@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FireBaseTrack, TrackFilter } from '../interfaces';
 import { TrackService } from '../firebase-services/track-service.service';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { FilterTrackService } from '../filter-side-bar/filter-track.service';
+import { TrackDetailService } from '../track-details/track-detail.service';
 
 @Component({
   selector: 'app-view-cuts',
@@ -12,6 +12,7 @@ import { FilterTrackService } from '../filter-side-bar/filter-track.service';
 export class ViewCutsComponent implements OnInit {
 
   tracks$;
+  trackDetails: FireBaseTrack = null;
   searchValue: string;
   filteredTrackList: FireBaseTrack[];
   currentFilter: TrackFilter;
@@ -19,7 +20,7 @@ export class ViewCutsComponent implements OnInit {
   constructor(
               private trackService: TrackService,
               private filterService: FilterTrackService,
-              private afs: AngularFirestore) { }
+              private trackDetailService: TrackDetailService) { }
 
   ngOnInit() {
     this.filterService.FilterSubject.subscribe(filter => {
@@ -28,6 +29,10 @@ export class ViewCutsComponent implements OnInit {
     });
 
     this.tracks$ = this.trackService.getCollection$(this.currentFilter);
+  }
+
+  showDetails(track) {
+    this.trackDetailService.TrackDetailsSubject.next(track);
   }
 
 

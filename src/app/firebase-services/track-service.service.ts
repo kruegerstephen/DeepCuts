@@ -17,9 +17,11 @@ export class TrackService {
   trackDoc: AngularFirestoreDocument<FireBaseTrack>;
 
   searchTrackByTrackName$: BehaviorSubject<string|null>;
+  searchTrackByTrackID$: BehaviorSubject<string|null>;
   searchTrackByArtistName$: BehaviorSubject<string|null>;
 
   trackNameQueryObservable;
+  trackIDQueryObservable;
 
   constructor(private afs: AngularFirestore, private filterService: FilterTrackService) {
 
@@ -30,20 +32,31 @@ export class TrackService {
 
     this.tracks = this.trackCollection.valueChanges();
 
-    this.searchTrackByTrackName$ = new BehaviorSubject<string>(null);
-    this.searchTrackByArtistName$ = new BehaviorSubject<string>(null);
+    // this.searchTrackByTrackName$ = new BehaviorSubject<string>(null);
+    // this.searchTrackByArtistName$ = new BehaviorSubject<string>(null);
+    // this.searchTrackByTrackID$ = new BehaviorSubject<string>(null);
 
-    this.trackNameQueryObservable = this.searchTrackByTrackName$.pipe(
-      switchMap((trackName) =>
-       afs.collection('Tracks', ref => {
-        let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
-        if (trackName) {
-          query = query.where('Track', '==', trackName);
-        }
-        return query;
-      }).valueChanges()),
-      catchError(err => { console.log(err); return of(err); })
-    );
+
+    // this.trackNameQueryObservable = this.searchTrackByTrackName$.pipe(
+    //   switchMap((trackName) =>
+    //    afs.collection('Tracks', ref => {
+    //     let query: firebase.firestore.CollectionReference | firebase.firestore.Query = ref;
+    //     if (trackName) {
+    //       query = query.where('Track', '==', trackName);
+    //     }
+    //     return query;
+    //   }).valueChanges()),
+    //   catchError(err => { console.log(err); return of(err); })
+    // );
+
+    // this.trackIDQueryObservable = this.searchTrackByTrackID$.pipe(
+    //   switchMap((ID) => afs.collection('Tracks').doc(ID).ref.get().then((doc) => {
+    //     if (doc.exists) {
+    //       console.log(doc.data());
+    //     } else {
+    //       console.log('Document Does Not Exist');
+    //     }
+    //   }).catch( err => console.log(err)))).subscribe();
   }
 
   createTrack(track: FireBaseTrack): boolean {
